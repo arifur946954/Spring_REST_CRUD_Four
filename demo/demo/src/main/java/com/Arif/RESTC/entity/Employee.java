@@ -3,14 +3,14 @@ package com.Arif.RESTC.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employee")
 
 public class Employee {
     //Define field
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-  private   int id;
+  private int id;
     @Column(name = "first_Name")
   private  String firstName;
     @Column(name = "last_Name")

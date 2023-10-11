@@ -42,4 +42,22 @@ public List<Employee> findAll(){
       return dbEmployee;
 
     }
+
+    @PutMapping("/employee")
+    public Employee updateEmployee(@RequestBody Employee theEnployee){
+       Employee dbEmployee= employeeService.save(theEnployee);
+       return dbEmployee;
+
+    }
+
+    @DeleteMapping("/employee/{employeeId}")
+    public String deleteEmployee(@PathVariable int employeeId ){
+     Employee tempEmployeeId=  employeeService.findByID(employeeId);
+     if (tempEmployeeId==null){
+         throw new RuntimeException("not found id :"+employeeId);
+     }
+     employeeService.delete(employeeId);
+     return "Delete is is"+employeeId;
+
+    }
 }
