@@ -1,7 +1,7 @@
 package com.Arif.RESTC.rest;
 
-import com.Arif.RESTC.dao.EmployeeDao;
 import com.Arif.RESTC.entity.Employee;
+import com.Arif.RESTC.service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,14 +12,17 @@ import java.util.List;
 @RequestMapping("/api")
 
 public class EmployeeRestController {
-    private EmployeeDao employeeDao;
+    private EmployeeService employeeService;
     //quick and dirty inject employeedao
-    public EmployeeRestController(EmployeeDao employeeDao) {
-        this.employeeDao = employeeDao;
+
+    public EmployeeRestController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
     }
+
+
     @GetMapping("/employee")
 public List<Employee> findAll(){
-        return employeeDao.findAll();
+        return employeeService.findAll();
 }
 
     //expose employee and return employee

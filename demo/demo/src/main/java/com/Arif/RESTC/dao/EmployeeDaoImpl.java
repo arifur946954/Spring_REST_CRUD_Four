@@ -24,6 +24,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
         //execute query
       List<Employee> employee=  theQuery.getResultList();
         //return result
+        //res
         return employee;
     }
 }
